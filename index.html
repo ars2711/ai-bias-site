@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI and Bias - Arsalan & Anas</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+  <body>
+    <nav>
+      <a href="#about"
+        ><span class="material-symbols-outlined"> description </span>About</a
+      >
+      <a href="#drag-drop"
+        ><span class="material-symbols-outlined"> upload_file </span>Upload
+        Files</a
+      >
+      <a href="#presentation"
+        ><span class="material-symbols-outlined"> jamboard_kiosk </span
+        >Presentation</a
+      >
+      <a href="#contact"
+        ><span class="material-symbols-outlined"> mail </span>Contact</a
+      >
+    </nav>
+    <header>
+      <h1>AI and Bias</h1>
+      <p>
+        Project by <b>Arsalan Afzal</b> (500822) & <b>Anas Rizwan</b> (504180)
+      </p>
+    </header>
+    <section id="about">
+      <h2>About AI and Bias</h2>
+      <p>
+        Welcome to our "AI and Bias" project. Our mission is to eliminate biases
+        in AI datasets and ensure fairness in artificial intelligence systems.
+        This site showcases our portfolio and includes tools for dataset
+        processing. In the future, we aim to expand this project to fully
+        operationalize our bias-removal system.
+      </p>
+      <div class="cta">
+        <a href="#drag-drop">Start Uploading Files</a>
+      </div>
+    </section>
+
+    <section id="drag-drop">
+      <h2>Upload Your Dataset</h2>
+      <div class="drag-area" id="dragArea">
+        <p>
+          Drag and drop your CSV or Excel file here,<br />or click to upload.
+        </p>
+        <input type="file" id="fileInput" accept=".csv, .xlsx" hidden />
+      </div>
+      <p id="fileStatus" style="margin-top: 1rem; color: #00668f"></p>
+    </section>
+
+    <section id="statistics">
+      <h2>Dataset statistics</h2>
+      <div class="statistics">
+        <div>
+          <h3>Why Us?</h3>
+          <p>
+            The thing is we are the most trusted and reliable AI Bias
+            eliminators on the planet! With statistics that are sure to
+            eliminate your doubts and performances that are sure to blow your
+            mind!
+          </p>
+        </div>
+        <div>
+          <div>
+            <h2 class="counter" data-target="1024">0</h2>
+            <p>Total files tested</p>
+          </div>
+          <div>
+            <h2 class="counter" data-target="657">0</h2>
+            <p>Total biases removed</p>
+          </div>
+          <div>
+            <h2 class="counter" data-target="1002">0</h2>
+            <p>Data accurately identified</p>
+          </div>
+          <div>
+            <h2 class="counter" style="display: inline-block" data-target="98">
+              0
+            </h2>
+            <h2 style="display: inline-block">%</h2>
+            <p>Accurate result</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="presentation" class="presentation">
+      <h2>Project Presentation</h2>
+      <iframe
+        src="https://docs.google.com/presentation/d/e/2PACX-1vRdxZY3_example/embed?start=false&loop=false&delayms=3000"
+        allowfullscreen
+      ></iframe>
+    </section>
+
+    <footer id="contact">
+      <p>Created by Arsalan Afzal (500822) & Anas Rizwan (504180).</p>
+      <p>
+        Visit Arsalan's
+        <a href="https://github.com/ars2711" target="_blank">GitHub</a> for more
+        projects.
+      </p>
+    </footer>
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      // Selector
+      const counters = document.querySelectorAll(".counter");
+      // Main function
+      for (let n of counters) {
+        const updateCount = () => {
+          const target = +n.getAttribute("data-target");
+          const count = +n.innerText;
+          const speed = 450; // change animation speed here
+          const inc = target / speed;
+          if (count < target) {
+            n.innerText = Math.ceil(count + inc);
+            setTimeout(updateCount, 1);
+          } else {
+            n.innerText = target;
+          }
+        };
+        updateCount();
+      }
+    </script>
+  </body>
+</html>
