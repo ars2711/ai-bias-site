@@ -129,6 +129,9 @@ div.file-statistics {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
+#file-statistics {
+  display: none;
+}
 div.statistics > div,
 div.file-statistics > div {
   display: grid;
@@ -138,4 +141,10 @@ div.statistics > div:nth-child(1) {
   display: flex;
   flex-direction: column;
   text-align: left;
+}
+div.file-statistics > div:nth-child(1) {
+  border-right: solid #1c1c1e 1px;
+}
+div.file-statistics > div:nth-child(2) {
+  border-left: solid #1c1c1e 1px;
 }

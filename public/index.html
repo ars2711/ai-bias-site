@@ -60,7 +60,13 @@
         <p>
           Drag and drop your CSV or Excel file here,<br />or click to upload.
         </p>
-        <input type="file" id="fileInput" accept=".csv, .xlsx" hidden />
+        <input
+          type="file"
+          id="fileInput"
+          onchange="showHiddenSection()"
+          accept=".csv, .xlsx"
+          hidden
+        />
       </div>
       <p id="fileStatus" style="margin-top: 1rem; color: #00668f"></p>
     </section>
@@ -101,7 +107,7 @@
             <p>Number of Females</p>
           </div>
           <div>
-            <h2 class="counter" data-target="54.95">0</h2>
+            <h2 class="counter" data-target="54.96">0</h2>
             <p>Mean pretest score</p>
           </div>
           <div>
@@ -168,7 +174,7 @@
         const updateCount = () => {
           const target = +n.getAttribute("data-target");
           const count = +n.innerText;
-          const speed = 450; // change animation speed here
+          const speed = 400; // change animation speed here
           const inc = target / speed;
           if (count < target) {
             n.innerText = Math.ceil(count + inc);

@@ -29,3 +29,12 @@ function handleFile(file) {
 		fileStatus.textContent = "No file selected.";
 	}
 }
+
+function showHiddenSection() {
+	const fileInput = document.getElementById("fileInput");
+	const hiddenSection = document.getElementById("file-statistics");
+
+	if (fileInput.files.length > 0) {
+		hiddenSection.style.display = "block"; // Show the hidden section
+	}
+}
