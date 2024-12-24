@@ -124,11 +124,13 @@ footer a {
 footer a:hover {
   text-decoration: underline;
 }
-div.statistics {
+div.statistics,
+div.file-statistics {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
-div.statistics > div {
+div.statistics > div,
+div.file-statistics > div {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
