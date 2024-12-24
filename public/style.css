@@ -28,16 +28,25 @@ header p {
 nav {
   top: 0;
   position: sticky;
-  background-color: #333;
+  background-color: #c8c8c85a;
   color: white;
-  padding: 0.5rem 2rem;
+  padding: 2rem;
   display: flex;
   justify-content: center;
-  gap: 2rem;
-  width: 99%;
+  gap: 4rem;
+  width: 94%;
   position: fixed;
   margin: 0.5%;
   border-radius: 0.5vw;
+  border: #e8f0f5;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease-in-out;
+}
+.fixed-header {
+  width: 100%;
+  margin: 0;
+  border-radius: 0;
+  padding: 1em 0;
 }
 nav a {
   color: white;
@@ -147,4 +156,178 @@ div.file-statistics > div:nth-child(1) {
 }
 div.file-statistics > div:nth-child(2) {
   border-left: solid #1c1c1e 1px;
+}
+header > h1 {
+  margin-top: 1em;
+}
+body::-webkit-scrollbar {
+  width: 0.5rem;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #00668f;
+  border-radius: 50px;
+  border: 0.1em solid #e8f0f5;
+}
+body::-webkit-scrollbar-thumb:hover {
+  background-color: #007eb0;
+  cursor: pointer;
+  border: 0.1em solid #e8f0f5;
+}
+.progress-wrap {
+  position: fixed;
+  right: 2.5vw;
+  bottom: 2.5vw;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  display: block;
+  border-radius: 50px;
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.2);
+  z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  -webkit-transition: all 200ms linear;
+  transition: all 200ms linear;
+  background-color: #eaeaea24;
+}
+.progress-wrap.active-progress {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.progress-wrap::after {
+  position: absolute;
+  font-family: "unicons";
+  content: "\e84b";
+  text-align: center;
+  line-height: 50px;
+  font-size: 26px;
+  color: #00668f;
+  left: 0;
+  top: 0;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  display: block;
+  z-index: 1;
+  -webkit-transition: all 200ms linear;
+  transition: all 200ms linear;
+}
+.progress-wrap:hover::after {
+  opacity: 0;
+}
+.progress-wrap::before {
+  position: absolute;
+  font-family: "unicons";
+  content: "\e84b";
+  text-align: center;
+  line-height: 50px;
+  font-size: 26px;
+  opacity: 0;
+  background: #1c1c1e;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  left: 0;
+  top: 0;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  display: block;
+  z-index: 2;
+  -webkit-transition: all 200ms linear;
+  transition: all 200ms linear;
+}
+.progress-wrap:hover::before {
+  opacity: 1;
+}
+.progress-wrap svg path {
+  fill: none;
+}
+.progress-wrap svg.progress-circle path {
+  stroke: #00668f;
+  stroke-width: 5;
+  box-sizing: border-box;
+  -webkit-transition: all 200ms linear;
+  transition: all 200ms linear;
+}
+.scrolled-active {
+  margin: auto 0.5em;
+}
+@font-face {
+  font-family: "unicons";
+  src: url("unicons.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@-webkit-keyframes border-transform {
+  0%,
+  100% {
+    border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
+  }
+  14% {
+    border-radius: 40% 60% 54% 46% / 49% 60% 40% 51%;
+  }
+  28% {
+    border-radius: 54% 46% 38% 62% / 49% 70% 30% 51%;
+  }
+  42% {
+    border-radius: 61% 39% 55% 45% / 61% 38% 62% 39%;
+  }
+  56% {
+    border-radius: 61% 39% 67% 33% / 70% 50% 50% 30%;
+  }
+  70% {
+    border-radius: 50% 50% 34% 66% / 56% 68% 32% 44%;
+  }
+  84% {
+    border-radius: 46% 54% 50% 50% / 35% 61% 39% 65%;
+  }
+}
+.loading {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  border-top: 4px solid #eaeaea;
+  border-right: 4px solid transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+.loading::after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border-left: 4px solid #00668f;
+  border-bottom: 4px solid transparent;
+  animation: rotation 0.5s linear infinite reverse;
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.loader-wrapper {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #eaeaea87;
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+  justify-content: center;
+  align-items: center;
+  z-index: 100000;
+  flex-direction: column;
+  display: none;
 }
