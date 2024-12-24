@@ -24,7 +24,7 @@ function handleFile(file) {
 	if (file) {
 		const fileName = file.name;
 		const newFileName = fileName.replace(/(\.[^.]*)$/, " debiased$1");
-		fileStatus.textContent = `Uploaded: ${fileName} \u2794 New File downloaded: Updated_DataSheet.csv`;
+		fileStatus.textContent = `Uploaded: ${fileName} \u2794 New File downloaded: Updated_DataSheet.csv Scroll Downwards`;
 	} else {
 		fileStatus.textContent = "No file selected.";
 	}
